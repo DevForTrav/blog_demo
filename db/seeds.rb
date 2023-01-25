@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+user = User.find_by(email: "travis@example.com")
+
+10.times do |x|
+  Post.create(
+    title: "Title ##{x+1}",
+    body: "Body ##{x+1} so let me type some random text here that somewhat resembles a blog post of sorts.",
+    user_id: user.id
+  )
+
+  puts "Created #{x + 1} posts" if x == 9
+end
