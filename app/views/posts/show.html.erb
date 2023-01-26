@@ -12,9 +12,9 @@
   <%= render 'comments/form', 
     post: @post, 
     comment: @post.comments.build, 
-    submit_label: "Reply" 
+    submit_label: "Reply"
   %>
   <% @comments.each do |comment| %>
-    <%= render 'comments/comment', post: @post, comment: comment %>
+    <%= render 'comments/comment', post: @post, comment: comment, edit_label: "Edit" %>
   <% end %>
 </div>
