@@ -8,12 +8,13 @@
   <% end %>
   <% if current_user == comment.user %>
     <div class="btn-group float-end">
-      <%= link_to "Edit", nil, remote: true, class: "btn btn-warning",
+      <%= link_to edit_label, nil, remote: true, class: "btn btn-warning", id: "edit-btn-#{comment.id}",
       data: {
         controller: "comments",
         action: "comments#toggleForm",
         comments_form_param: "edit-form-#{comment.id}",
         comments_body_param: "comment-body-#{comment.id}",
+        comments_edit_param: "edit-btn-#{comment.id}"
       }%>
       <%= button_to "Delete", [post,comment], class: "btn btn-danger", method: :delete %>
     </div>
@@ -21,7 +22,8 @@
       <%= render 'comments/form', 
         post: @post, 
         comment: comment,
-        submit_label: "Update" 
+        submit_label: "Update",
+        edit_label: "Cancel" 
       %>
     </div>
   <% end %>
